@@ -49,8 +49,6 @@ export function ColorBox() {
         {isGettingColor ?
           <motion.button
             className="flex p-2 m-auto justify-center items-center rounded-md font-semibold text-xl text-white"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1 }}
             style={{ backgroundColor: `#1D1E22` }}
             animate={{
               scale: [1, 1.25, 1],
