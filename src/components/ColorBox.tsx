@@ -12,7 +12,7 @@ const openai = new OpenAIApi(configuration);
 
 export function ColorBox() {
   const [isGettingColor, setIsGettingColor] = useState(false);
-  const [color, setColor] = useState<string | undefined>('');
+  const [color, setColor] = useState<string | undefined>('00AFF0');
   const [prompt, setPrompt] = useState<string>('');
 
   const getColor = async () => {
@@ -40,12 +40,11 @@ export function ColorBox() {
       <div className="flex h-full w-full justify-center items-center transition" style={{ backgroundColor: `#${color}` }}>
       </div>
       <div className="absolute w-[30rem]">
-        <span className="flex m-auto p-4 justify-center font-semibold text-5xl text-white">{color === '' ? 'Descreva uma cor' : `#${color}`}</span>
+        <span className="flex m-auto p-4 justify-center font-semibold text-5xl text-white">{`#${color}`}</span>
         <textarea
           className="flex my-5 p-1 w-full justify-center h-24 max-h-52 border rounded-lg resize-none text-black text-xl border-slate-300 hover:border-slate-400 focus:border-teal-500 focus:outline-none"
           style={{ backgroundColor: `white`, opacity: '.8' }}
           onChange={(e) => setPrompt(e.target.value)}>
-
         </textarea>
         {isGettingColor ?
           <motion.button
@@ -63,7 +62,7 @@ export function ColorBox() {
             }}
             disabled
           >
-            GETTING COLOR
+            GERANDO SUA SUPER COR
           </motion.button>
           :
           <motion.button
@@ -73,7 +72,7 @@ export function ColorBox() {
             style={{ backgroundColor: `#1D1E22` }}
             onClick={() => getColor()}
           >
-            Request color
+            Pedir cor
             <PaperPlaneTilt className="ml-2" size={24} />
           </motion.button>
         }
